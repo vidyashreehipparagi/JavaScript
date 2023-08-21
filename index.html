@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    
+
+    <script>
+        var a = 20;
+        let b = 10;
+        const pi = 3.14;
+         var name = "Kishor";
+        var isAdmin = false;
+        var salary = 45678.88;
+        var id = 101;
+
+
+        // two ways to print
+        document.write("my name is " + name);
+        document.write(isAdmin);
+        document.write(salary);
+          document.write("<br/>"+b);
+
+
+        console.log("my name is " + name);
+        for (var i = 1; i <= 10; i++) {
+            document.write("<br/>"+ i);
+        }
+
+        function Addition(){
+            var a=10, b=20;
+            var c=a+b;
+            document.write("<br/>"+c);
+        }//call the function
+        Addition();
+        function Sub(a,b){
+            var c=a-b;
+             document.write("<br/>"+c);
+        }
+        Sub(20,08);
+
+        function Mul(a,b){
+            var c=a*b;
+            return c;
+        }
+        var result=Mul(25,20);
+         document.write("<br/>"+result);
+ function Div(a,b){
+     var c=a/b;
+     return c;
+ }
+ var res=Div(14,7);
+  document.write("<br/>"+res);
+
+    </script>
+    <script src="index.js">
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    Enter First Number: <input type="text" name="name" id=t1 /> <br /><br />
+    Enter Second Number: <input type="text" name="name" id=t2 /><br /><br />
+    Enter  Number: <input type="text" name="name" id="t3"  disabled/><br /><br />
+    <input type="button" value="Add" onclick="Addition()" />
+    <input type="button" value="Sub" onclick="Sub()"/>
+    <input type="button" value="Mul" onclick="Mul()"/>
+    <input type="button" value="Div" onclick="Div()"/>
+    <input type="button" value="Clear" onclick="ClearData()"/>
+
+    <table cellpadding="10" cellspacing="10" id="cal">
+        <tr>
+            <td>Sum</td>
+            <td id="t4"></td>
+        </tr>
+        <tr>
+            <td>Sub</td>
+            <td id="t5"></td>
+        </tr>
+        <tr>
+            <td>Mul</td>
+            <td id="t6"></td>
+        </tr>
+        <tr>
+            <td>Div</td>
+            <td id="t7"></td>
+        </tr>
+        
+        
+        
+
+    </table>
+
+    <div id="d1"></div>
+    <script>
+//DOM method & propery
+    function Addition(){
+    var a=document.getElementById("t1").value;
+    var b=document.getElementById("t2").value;
+    var sum=parseInt(a)+parseInt(b);
+    document.getElementById("t3").value=sum;
+       document.getElementById("d1").innerHTML = "Sum is " + sum;
+        document.getElementById("t4").innerHTML =  sum;
+
+
+
+
+}
+     function Sub(){
+    var a=document.getElementById("t1").value;
+    var b=document.getElementById("t2").value;
+    var sum=parseInt(a)-parseInt(b);
+    document.getElementById("t3").value=sum;
+  
+     document.getElementById("t5").innerHTML =  sum;
+    }
+     function Mul(){
+    var a=document.getElementById("t1").value;
+    var b=document.getElementById("t2").value;
+    var sum=parseInt(a)*parseInt(b);
+     document.getElementById("t6").innerHTML =  sum; 
+}
+     function Div(){
+    var a=document.getElementById("t1").value;
+    var b=document.getElementById("t2").value;
+    var sum=parseInt(a)/parseInt(b);
+    document.getElementById("t3").value=sum;
+    document.getElementById("t7").innerHTML =  sum;}
+function ClearData(){
+    var ress=confirm("Do you want to clear?..")
+    if(ress==true){
+        document.getElementById("t1").value = "";
+        document.getElementById("t2").value = "";
+        document.getElementById("t3").value = "";
+
+
+        
+        
+    }
+
+}
+    </script>
+</body>
+</html>
