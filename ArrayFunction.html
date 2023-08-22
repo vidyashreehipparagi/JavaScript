@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    Enter Number:<input type="number" id="n1" /><br /><br />
+    Enter Name:<input type="text" id="t1" /><br /><br />
+    <button type="submit" name="Add" onclick="add()">ADD</button>
+    <button type="submit" name="Remove" onclick="removeName()">REMOVE</button>
+
+    <div id="d1"></div>
+    <script>
+        var names = ["Shruti", "Harish", "Akshata", "Anjali"];
+        function defaultList() {
+            var data = "<ol>";
+            for (var i = 0; i < names.length; i++) {
+                data += "<li>" + names[i] + "</li>"
+            }
+            data += "</ol>";
+            console.log(data);
+            document.getElementById("d1").innerHTML = data;
+
+        }
+        function add()
+        {
+            let a = document.getElementById("t1").value;
+            names.push(a);
+            defaultList();
+        }
+        function removeName() {
+            let a = document.getElementById("t1").value;
+            for (var i = 0; i < names.length; i++) {
+                if (a == names[i]) {
+                    names.splice(i, 1);
+                    break;
+                }
+            }
+            defaultList();
+        }
+    </script>
+</body>
+</html>
