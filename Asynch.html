@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <input type="button" value="Get Data" onclick="GetData()" />
+    <div id="d1"></div>
+    <script>
+
+
+        async function GetData() {
+            let promise = new Promise(function (resolve, reject) {
+                let req = new XMLHttpRequest();
+                req.open("GET", "https://dummyjson.com/products/10");
+                req.onload = function () {
+                    if (req.status == 200) { // status --> HTTP
+                        resolve(req.response);
+                    }
+                    else {
+                        reject("Server error");
+                    }
+                };
+                req.send();
+            }); // close
+
+
+            var response = await promise;
+            display(response);
+        }
+
+
+
+
+        function display(value){
+            var data = "<table border='1'><tr><td>Id</td><td>Title</td><td>Description</td><td>Price</td><td>Image</td></tr>";
+            var result = JSON.parse(value);
+
+            data += "<tr><td>" + result.id + "</td><td>" + result.title + "</td><td>" +
+                result.description + "</td><td>" + result.price +
+                "</td><td><img src='" + result.thumbnail + "' height='200' width='300'/></td></tr>";
+
+            data += "</table>";
+            document.getElementById("d1").innerHTML = data;
+        }
+
+
+
+    </script>
+
+</body>
+</html>

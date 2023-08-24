@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+
+    <div id="d1"></div>
+    <script>
+        let promise = new Promise(function (resolve, reject) {
+            let req = new XMLHttpRequest();
+            req.open("GET", "https://jsonplaceholder.typicode.com/todos/");
+            req.onload = function () {
+                if (req.status == 200) { // status --> HTTP
+                    resolve(req.response);
+                }
+                else {
+                    reject("Server error");
+                }
+            };
+            req.send();
+        }); // close
+
+
+        //call the promise
+
+
+        promise.then(function (value) {
+            display(value)
+        },
+            function (error) {
+                displayerror(error)
+            }
+        );
+
+
+        function display(value){
+            var data = "<table border='1'><tr><td>User Id</td><td>Id</td><td>Title</td><td>Completed</td></tr>";
+            var result = JSON.parse(value);
+            for (var i = 0; i < result.length; i++) {
+                data += "<tr><td>" + result[i].userId + "</td><td>" + result[i].id + "</td><td>" +
+                    result[i].title + "</td><td>" + result[i].completed + "</td></tr>";
+            }
+            data += "</table>";
+            document.getElementById("d1").innerHTML = data;
+        }
+
+
+        function displayerror(error) {
+            document.getElementById("d1").innerHTML = error;
+        }
+    </script>
+
+</body>
+</html>
